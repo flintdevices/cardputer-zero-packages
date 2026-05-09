@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'pool/**/*.deb'
+      - 'pool/**'
       - '.github/workflows/update-index.yml'
 
   workflow_dispatch:
@@ -74,3 +74,14 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  notify-registry:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger registry update on cardputerzero.github.io
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DISPATCH_TOKEN }}
+          repository: CardputerZero/cardputerzero.github.io
+          event-type: packages-updated
