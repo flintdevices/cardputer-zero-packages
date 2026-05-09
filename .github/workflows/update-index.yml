@@ -36,28 +36,27 @@ jobs:
 
       - name: Build APT repository
         run: |
-          mkdir -p public/pool public/dists/stable/main/binary-arm64
+          mkdir -p public/dists/stable/main/binary-arm64
 
-          # Copy all deb files preserving pool structure
-          cp -r pool/ public/pool/
+          # Copy pool into public (preserving structure)
+          cp -a pool public/
 
-          # Generate Packages index
+          # Generate Packages index (run from public/ so Filename paths are relative)
           cd public
           dpkg-scanpackages --multiversion pool/ > dists/stable/main/binary-arm64/Packages
           gzip -k -f dists/stable/main/binary-arm64/Packages
 
           # Generate Release file
           cd dists/stable
-          cat > Release <<'EOF'
-          Origin: CardputerZero
-          Label: CardputerZero AppStore
-          Suite: stable
-          Codename: stable
-          Architectures: arm64
-          Components: main
-          Description: CardputerZero APT Repository
-          EOF
-          sed -i 's/^          //' Release
+          cat > Release <<'RELEASE'
+Origin: CardputerZero
+Label: CardputerZero AppStore
+Suite: stable
+Codename: stable
+Architectures: arm64
+Components: main
+Description: CardputerZero APT Repository
+RELEASE
 
           {
             echo "MD5Sum:"
