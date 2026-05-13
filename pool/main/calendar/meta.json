@@ -1,0 +1,19 @@
+{
+  "title": "Calendar",
+  "summary": "Compact Calendar app for local and online ICS schedules.",
+  "categories": [
+    "Productivity",
+    "Calendar"
+  ],
+  "license": "MIT",
+  "source_repo": "https://github.com/CardputerZero/Calendar",
+  "icon": "share/images/calendar.png",
+  "screenshots": [
+    "store/screenshots/calendar-manager-zh.png"
+  ],
+  "permissions": {
+    "filesystem": true,
+    "keyboard_input": true,
+    "network": true
+  }
+}
