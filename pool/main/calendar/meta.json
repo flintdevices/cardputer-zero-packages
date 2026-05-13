@@ -9,7 +9,7 @@
   "source_repo": "https://github.com/CardputerZero/Calendar",
   "icon": "share/images/calendar.png",
   "screenshots": [
-    "store/screenshots/calendar-manager-zh.png"
+    "store/screenshots/calendar-manager-zh-320x170.png"
   ],
   "permissions": {
     "filesystem": true,
