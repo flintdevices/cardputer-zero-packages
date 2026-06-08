@@ -1,0 +1,38 @@
+{
+  "title": "Flint",
+  "summary": "Offensive security firmware for M5Stack CardputerZero",
+  "categories": ["Security", "Utilities"],
+  "author": {
+    "github": "flintdevices",
+    "display_name": "Flint Devices"
+  },
+  "license": "MIT",
+  "source_repo": "https://github.com/flintdevices/flint",
+  "icon": "flint.png",
+  "screenshots": [
+    "screenshots/01_home_carousel.png",
+    "screenshots/02_wifi_scan.png",
+    "screenshots/03_ping_stats.png",
+    "screenshots/04_ping_chart.png",
+    "screenshots/05_sysmon_dashboard.png",
+    "screenshots/06_deauth_running.png",
+    "screenshots/07_beacon_spam_running.png",
+    "screenshots/08_handshake_capture.png",
+    "screenshots/09_probe_scan.png",
+    "screenshots/10_signal_monitor.png",
+    "screenshots/11_station_scan.png",
+    "screenshots/12_anomaly_detector.png",
+    "screenshots/13_cctv_scanner.png",
+    "screenshots/14_tetris.png",
+    "screenshots/15_nfc_scan.png",
+    "screenshots/16_lora_radio.png",
+    "screenshots/17_rf_scan.png",
+    "screenshots/18_gps_info.png"
+  ],
+  "permissions": {
+    "network": true,
+    "keyboard_input": true,
+    "filesystem": true,
+    "external_hardware": true
+  }
+}
