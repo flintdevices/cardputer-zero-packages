@@ -4,6 +4,8 @@ APT repository for CardputerZero applications.
 
 - `.deb` files stored in git via LFS
 - CI auto-generates APT index and deploys to GitHub Pages
+- Optional Aliyun OSS mirror lives under `oss/` and is disabled by default
+- CN AppStore registry is generated at the OSS mirror when OSS sync is enabled
 - Users download via Pages CDN (100GB/month bandwidth)
 
 ## Usage on device

@@ -5,9 +5,20 @@ on:
     branches: [main]
     paths:
       - 'pool/**'
+      - 'oss/**'
       - '.github/workflows/update-index.yml'
 
   workflow_dispatch:
+    inputs:
+      sync_oss:
+        description: 'Also sync the generated APT repository to Aliyun OSS'
+        required: false
+        type: boolean
+        default: false
+      oss_prefix:
+        description: 'OSS object prefix for manual sync runs'
+        required: false
+        default: 'packages'
 
 permissions:
   contents: read
@@ -62,6 +73,25 @@ jobs:
             hash=$(sha256sum "$f" | awk '{print $1}')
             printf " %s %s %s\n" "$hash" "$size" "$f" >> Release
           done
+
+      - name: Setup ossutil
+        if: ${{ vars.PACKAGES_OSS_SYNC_ENABLED == 'true' || inputs.sync_oss == true }}
+        uses: manyuanrong/setup-ossutil@v3.0
+        with:
+          endpoint: ${{ vars.PACKAGES_OSS_ENDPOINT || 'oss-cn-shenzhen.aliyuncs.com' }}
+          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+
+      - name: Sync APT repository to Aliyun OSS
+        if: ${{ vars.PACKAGES_OSS_SYNC_ENABLED == 'true' || inputs.sync_oss == true }}
+        env:
+          OSS_SYNC_ENABLED: 'true'
+          OSS_PUBLIC_DIR: public
+          OSS_ENDPOINT: ${{ vars.PACKAGES_OSS_ENDPOINT || 'oss-cn-shenzhen.aliyuncs.com' }}
+          OSS_BUCKET: ${{ vars.PACKAGES_OSS_BUCKET || 'cardputer-zero-repo' }}
+          OSS_PREFIX: ${{ inputs.oss_prefix || vars.PACKAGES_OSS_PREFIX || 'packages' }}
+          OSS_PUBLIC_BASE_URL: ${{ vars.PACKAGES_OSS_PUBLIC_BASE_URL }}
+        run: oss/sync-apt-repo.sh
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
