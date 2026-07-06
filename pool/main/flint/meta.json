@@ -10,6 +10,8 @@
   "source_repo": "https://github.com/flintdevices/flint",
   "icon": "flint.png",
   "screenshots": [
+    "screenshots/00_home.png",
+    "screenshots/00_home_list.png",
     "screenshots/01_home_carousel.png",
     "screenshots/02_wifi_scan.png",
     "screenshots/03_ping_stats.png",
@@ -27,7 +29,15 @@
     "screenshots/15_nfc_scan.png",
     "screenshots/16_lora_radio.png",
     "screenshots/17_rf_scan.png",
-    "screenshots/18_gps_info.png"
+    "screenshots/18_gps_info.png",
+    "screenshots/19_ble_spam_running.png",
+    "screenshots/20_codegotchi.png",
+    "screenshots/21_snake.png",
+    "screenshots/22_evil_portal_config.png",
+    "screenshots/23_file_manager.png",
+    "screenshots/24_mac_tracker.png",
+    "screenshots/25_pwnagotchi.png",
+    "screenshots/26_virtual_keyboard.png"
   ],
   "permissions": {
     "network": true,
