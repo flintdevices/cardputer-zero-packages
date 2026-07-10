@@ -26,6 +26,10 @@
   ],
   "license": "MIT",
   "source_repo": "https://github.com/JdaieLin/cardputer-xiaozhi",
+  "author": {
+    "github": "JdaieLin",
+    "display_name": "Jdaie"
+  },
   "icon": "xiaozhi.png",
   "screenshots": [
     "screenshots/01-binding.png",

@@ -7,6 +7,10 @@
   ],
   "license": "MIT",
   "source_repo": "https://github.com/CardputerZero/Calendar",
+  "author": {
+    "github": "zhuzhe1983",
+    "display_name": "Zhu Zhe"
+  },
   "icon": "share/images/calendar.png",
   "screenshots": [
     "store/screenshots/calendar-month-zh-320x170.png",

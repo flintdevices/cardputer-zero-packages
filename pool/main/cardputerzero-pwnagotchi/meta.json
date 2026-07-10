@@ -22,6 +22,10 @@
     }
   },
   "license": "MIT",
+  "author": {
+    "github": "JdaieLin",
+    "display_name": "Jdaie"
+  },
   "icon": "tools/assets/pwnagotchi.png",
   "permissions": {
     "microphone": false,

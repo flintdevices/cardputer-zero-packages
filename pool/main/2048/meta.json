@@ -7,6 +7,10 @@
   ],
   "license": "MIT",
   "source_repo": "https://github.com/CardputerZero/2048",
+  "author": {
+    "github": "zhuzhe1983",
+    "display_name": "Zhu Zhe"
+  },
   "icon": "share/images/2048.png",
   "screenshots": [
     "store/screenshots/2048-start-320x170.png",
